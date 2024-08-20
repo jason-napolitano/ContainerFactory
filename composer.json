@@ -1,0 +1,31 @@
+{
+    "name": "dynamo-php/bootstrap",
+    "type": "library",
+    "license": "MIT",
+    "scripts": {
+        "test": "./vendor/bin/pest"
+    },
+    "require": {
+        "psr/container": ">=2.0.2",
+        "php": ">=8.2"
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.35"
+    },
+    "autoload": {
+        "files": [
+            "src/Functions.php"
+        ],
+        "psr-4": {
+            "ContainerFactory\\": "src/",
+            "Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "stable"
+}
