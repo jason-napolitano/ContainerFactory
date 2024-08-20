@@ -1,7 +1,7 @@
 # ContainerFactory
 > A PSR-11 compatible dependency container with a simple and intuitive API
 
-#### Build your container using the `container()` function:
+#### Build your container using `container()`
 ```php
 use function ContainerFactory\container;
 
@@ -24,7 +24,7 @@ use function ContainerFactory\instance;
 instance()->mount(['service_key_two' => ServiceClass::class]);
 ```
 
-#### Access the service class using the `service()` function
+#### Access the service class using `service()`
 ```php
 use function ContainerFactory\service;
 
