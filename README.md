@@ -15,7 +15,7 @@ container(function (ContainerFactory\Container $container) {
 });
 ```
 
-#### Access the current containers instance using `instance()`
+#### Access the current container using `instance()`
 ```php
 use function ContainerFactory\instance;
 
