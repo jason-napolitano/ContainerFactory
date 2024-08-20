@@ -32,10 +32,5 @@ namespace Tests\Feature {
             $service = service('demo');
             expect($service->get())->toBe('hello, world!');
         });
-
-        test('service classes can have their methods called and executed', function () {
-            $service = service('demo');
-            expect($service->get())->toBe('hello, world!');
-        });
     });
 }
