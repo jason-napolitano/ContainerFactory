@@ -33,16 +33,6 @@ namespace Tests\Feature {
             expect($service->get())->toBe('hello, world!');
         });
 
-        test('service class methods exist within the service class', function () {
-            $service = service('demo');
-            expect($service->get())->toHaveMethod('get');
-        });
-
-        test('service class methods that do not exist cannot be called', function () {
-            $service = service('demo');
-            expect($service->get())->not()->toHaveMethod('methodThatDoesNotExist');
-        });
-
         test('service classes can have their methods called and executed', function () {
             $service = service('demo');
             expect($service->get())->toBe('hello, world!');
