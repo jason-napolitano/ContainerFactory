@@ -8,7 +8,10 @@
  *
  * @version 1.0.0
  */
+
 namespace ContainerFactory\Contracts {
 
-	interface ErrorInterface {}
+	interface ErrorInterface
+	{
+	}
 }

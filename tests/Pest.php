@@ -1,7 +1,5 @@
 <?php
 
-use function ContainerFactory\container;
-
 /*
 |--------------------------------------------------------------------------
 | Test Case
