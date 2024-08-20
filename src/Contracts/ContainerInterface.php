@@ -11,15 +11,15 @@
 
 namespace ContainerFactory\Contracts {
 
-	interface ContainerInterface extends \Psr\Container\ContainerInterface
-	{
-		/**
-		 * Mount new services to the container
-		 *
-		 * @param array $services
-		 *
-		 * @return void
-		 */
-		public function mount(array $services = []): void;
-	}
+    interface ContainerInterface extends \Psr\Container\ContainerInterface
+    {
+        /**
+         * Mount new services to the container
+         *
+         * @param array $services
+         *
+         * @return void
+         */
+        public function mount(array $services = []): void;
+    }
 }

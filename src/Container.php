@@ -11,105 +11,130 @@
 
 namespace ContainerFactory {
 
-	use ReflectionClass;
-	use ReflectionException;
-	use ReflectionNamedType;
-	use ReflectionParameter;
-	use ReflectionUnionType;
+    use ReflectionException;
+    use ReflectionNamedType;
+    use ReflectionParameter;
+    use ReflectionUnionType;
+    use ReflectionClass;
 
-	class Container implements Contracts\ContainerInterface
-	{
-		private static ?Container $instance = null;
-		public array $services = [];
+    class Container implements Contracts\ContainerInterface
+    {
+        /** @var Container|null $instance Container instance */
+        private static ?Container $instance = null;
 
-		public function __construct()
-		{
-			self::$instance = $this;
-		}
+        /** @var array $services Services array */
+        public array $services = [];
 
-		public static function instance(): self
-		{
-			return self::$instance;
-		}
+        public function __construct()
+        {
+            self::$instance = $this;
+        }
 
-		public function mount(array $services = []): void
-		{
-			$this->services = [...$this->services, ...$services];
+        /**
+         * Return the current container
+         *
+         * @return self
+         */
+        public static function instance(): self
+        {
+            return self::$instance;
+        }
 
-			foreach ($this->services as $entry => $class) {
-				$this->services[$entry] = $class;
-			}
-		}
+        /**
+         * Mount new services to the container
+         *
+         * @param array $services
+         *
+         * @return void
+         */
+        public function mount(array $services = []): void
+        {
+            $this->services = [...$this->services, ...$services];
 
-		public function get(string $id): mixed
-		{
-			if ($this->has($id)) {
-				$entry = $this->services[$id];
+            foreach ($this->services as $entry => $class) {
+                $this->services[$entry] = $class;
+            }
+        }
 
-				if (is_callable($entry)) {
-					return $entry($this);
-				}
-				$id = $entry;
-			}
-			return $this->resolve($id);
-		}
+        /** @inheritDoc */
+        public function get(string $id): mixed
+        {
+            if ($this->has($id)) {
+                $entry = $this->services[$id];
 
-		public function has(string $id): bool
-		{
-			return isset($this->services[$id]);
-		}
+                if (is_callable($entry)) {
+                    return $entry($this);
+                }
+                $id = $entry;
+            }
+            return $this->resolve($id);
+        }
 
-		protected function resolve(string $id): mixed
-		{
-			try {
-				$reflectionClass = new ReflectionClass($id);
-			} catch (ReflectionException $e) {
-				throw new Exceptions\Container\NotFoundException($e->getMessage(), $e->getCode(), $e);
-			}
+        /** @inheritDoc */
+        public function has(string $id): bool
+        {
+            return isset($this->services[$id]);
+        }
 
-			if (!$reflectionClass->isInstantiable()) {
-				throw new Exceptions\Container\ContainerException($id . '" is not instantiable');
-			}
-			$constructor = $reflectionClass->getConstructor();
+        /**
+         * Class resolver
+         *
+         * @param string $id
+         *
+         * @return mixed
+         */
+        protected function resolve(string $id): mixed
+        {
+            try {
+                $reflectionClass = new ReflectionClass($id);
+            } catch (ReflectionException $e) {
+                throw new Exceptions\Container\NotFoundException($e->getMessage(), $e->getCode(), $e);
+            }
 
-			if (!$constructor) {
-				return new $id;
-			}
+            if (!$reflectionClass->isInstantiable()) {
+                throw new Exceptions\Container\ContainerException($id . '" is not instantiable');
+            }
+            $constructor = $reflectionClass->getConstructor();
 
-			$parameters = $constructor->getParameters();
+            if (!$constructor) {
+                return new $id();
+            }
 
-			if (!$parameters) {
-				return new $id;
-			}
+            $parameters = $constructor->getParameters();
 
-			$dependencies = array_map(
-				function (ReflectionParameter $param) use ($id) {
-					$name = $param->getName();
-					$type = $param->getType();
+            if (!$parameters) {
+                return new $id();
+            }
 
-					if (!$type) {
-						throw new Exceptions\Container\ContainerException(
-							'Failed to resolve class "' . $id . '" because param "' . $name . '" is missing a type hint'
-						);
-					}
+            $dependencies = array_map(
+                function (ReflectionParameter $param) use ($id) {
+                    $name = $param->getName();
+                    $type = $param->getType();
 
-					if ($type instanceof ReflectionUnionType) {
-						throw new Exceptions\Container\ContainerException(
-							'Failed to resolve class "' . $id . '" because of union type for param "' . $name . '"'
-						);
-					}
+                    if (!$type) {
+                        throw new Exceptions\Container\ContainerException(
+                            'Failed to resolve class "' . $id . '" because param "' . $name . '" is missing a type hint'
+                        );
+                    }
 
-					if ($type instanceof ReflectionNamedType && !$type->isBuiltin()) {
-						return $this->get($type->getName());
-					}
+                    if ($type instanceof ReflectionUnionType) {
+                        throw new Exceptions\Container\ContainerException(
+                            'Failed to resolve class "' . $id . '" because of union type for param "' . $name . '"'
+                        );
+                    }
 
-					throw new Exceptions\Container\ContainerException(
-						'Failed to resolve class "' . $id . '" because invalid param "' . $name . '"'
-					);
-				}, $parameters
-			);
+                    if ($type instanceof ReflectionNamedType && !$type->isBuiltin()) {
+                        return $this->get($type->getName());
+                    }
 
-			return $reflectionClass->newInstanceArgs($dependencies);
-		}
-	}
+                    throw new Exceptions\Container\ContainerException(
+                        'Failed to resolve class "' . $id . '" because invalid param "' . $name . '"'
+                    );
+                },
+                $parameters
+            );
+
+            return $reflectionClass->newInstanceArgs($dependencies);
+        }
+    }
 }

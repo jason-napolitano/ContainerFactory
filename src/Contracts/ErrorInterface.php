@@ -11,7 +11,7 @@
 
 namespace ContainerFactory\Contracts {
 
-	interface ErrorInterface
-	{
-	}
+    interface ErrorInterface
+    {
+    }
 }

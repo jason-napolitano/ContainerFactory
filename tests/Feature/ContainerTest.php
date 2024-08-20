@@ -3,7 +3,9 @@
 namespace Tests\Feature {
 
 	use ContainerFactory\Contracts;
-	use function ContainerFactory\{container, instance, service};
+	use function ContainerFactory\{
+		container, instance, service
+	};
 
 	describe('service container', function () {
 
