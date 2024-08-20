@@ -24,7 +24,7 @@ use function ContainerFactory\instance;
 instance()->mount(['service_key_two' => ServiceClass::class]);
 ```
 
-#### Access the service class using `service()`
+#### Access a service using `service()`
 ```php
 use function ContainerFactory\service;
 
