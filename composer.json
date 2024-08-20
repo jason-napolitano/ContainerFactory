@@ -3,7 +3,9 @@
     "type": "library",
     "license": "MIT",
     "scripts": {
-        "test": "./vendor/bin/pest"
+        "test": "./vendor/bin/pest",
+        "fix:tests": "./vendor/bin/phpcbf --standard=PSR12 --report=summary tests/",
+        "fix:src": "./vendor/bin/phpcbf --standard=PSR12 --report=summary src/"
     },
     "require": {
         "psr/container": ">=2.0.2",
