@@ -4,7 +4,7 @@ namespace Tests\Feature {
 
     use ContainerFactory\Contracts;
     use function ContainerFactory\{
-        container, destroy, instance, reset, service
+        container, instance, service
     };
 
     describe('service container', function () {
@@ -34,12 +34,12 @@ namespace Tests\Feature {
         });
 
         test('an existing container can be reset using reset()', function () {
-            reset();
+	        instance()?->reset();
             expect(instance()->services)->not()->toHaveKey('demo');
         });
 
         test('an existing container can be destroyed using destroy()', function () {
-            destroy();
+	        instance()?->destroy();
             expect(instance())->toBeNull();
         });
 

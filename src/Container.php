@@ -1,7 +1,7 @@
 <?php
 
 /**
- * PSR-11 service container
+ * PSR-11 dependency container
  *
  * @license MIT <https://mit-license.org>
  * @author  Jason Napolitano
@@ -137,21 +137,13 @@ namespace ContainerFactory {
             return $reflectionClass->newInstanceArgs($dependencies);
         }
 
-        /**
-         * Resets a container
-         *
-         * @return void
-         */
+        /** @inheritDoc */
         public function reset(): void
         {
             self::$instance = new self();
         }
 
-        /**
-         * Destroys a container
-         *
-         * @return void
-         */
+        /** @inheritDoc */
         public function destroy(): void
         {
             self::$instance = null;

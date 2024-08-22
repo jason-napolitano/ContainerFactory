@@ -59,12 +59,20 @@ $session->set('message', 'Your account has been created');
 echo $session->get('message'); // Your account has been created
 ```
 
+#### Resetting a current container:
+We can easily reset the container, and all its properties. Doing
+so will remove all dependencies and give us a new container object.
+To do this we would call `instance()->reset()`.
+```php
+use function ContainerFactory\{ instance };
+
+instance()->reset();
+```
+
 #### Destroying a current container:
-There will be times when we may want to work with multiple 
-containers, and need to destroy existing instances. This can
-be accomplished using `instance()->destroy()`. Destroying a
-container instance will completely reset it and all of its
-properties.
+There will be times when we may want to destroy a container.
+Destroying a container instance will completely destroy the
+container object.
 ```php
 use function ContainerFactory\{ instance };
 

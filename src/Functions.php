@@ -1,7 +1,9 @@
 <?php
 
 /**
- * ContainerFactory helper functions
+ * These helper functions provide a procedural
+ * API which has access the container and its
+ * properties.
  *
  * @license MIT <https://mit-license.org>
  * @author  Jason Napolitano
@@ -44,25 +46,5 @@ namespace ContainerFactory {
     function service(string $id): mixed
     {
         return instance()?->get($id);
-    }
-
-    /**
-     * Resets a container
-     *
-     * @return void
-     */
-    function reset(): void
-    {
-        instance()?->reset();
-    }
-
-    /**
-     * Destroys a container
-     *
-     * @return void
-     */
-    function destroy(): void
-    {
-        instance()?->destroy();
     }
 }
