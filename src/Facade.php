@@ -2,15 +2,11 @@
 
 namespace ContainerFactory {
 
-    use ContainerFactory\Contracts\FacadeInterface;
-    use ContainerFactory\Exceptions;
-    use Tests\Feature\DemoService;
+	use ContainerFactory\Exceptions;
+	use ContainerFactory\Contracts;
+	use Tests\Feature\DemoService;
 
-    use function ContainerFactory\{
-        service, instance
-    };
-
-    class Facade implements FacadeInterface
+    class Facade implements Contracts\FacadeInterface
     {
         /** @inheritDoc */
         public static function __callStatic(string $name, array $arguments)
@@ -19,7 +15,7 @@ namespace ContainerFactory {
                 throw new Exceptions\Facade\ServiceNotFound("Service '$name' not found");
             }
 
-            return service($name);
+            return instance()?->get($name);
         }
     }
 }

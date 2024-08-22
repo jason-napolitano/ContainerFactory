@@ -43,7 +43,7 @@ instance()->mount([
 ]);
 ```
 
-#### Access mounted dependencies:
+#### Access mounted dependencies (using `service()`:
 Okay, so we've mounted a session library to our container, and we want to
 access a shared instance of that library. To do this, we will simply call 
 the `service()` function . This function takes one argument - the key for 
@@ -57,6 +57,23 @@ $session = service('session');
 $session->set('message', 'Your account has been created');
 
 echo $session->get('message'); // Your account has been created
+```
+
+#### Accessing mounted dependencies (using `Facade::class`)
+Let's say we want to access our dependencies using a facade class. This
+can be done by calling `Facade::serviceName()`, where `serviceName` matches
+the key that has been configured for a service upon mounting it. EG: `session`,
+as we've configured in the examples above.
+
+```php
+use ContainerFactory\Facade;
+
+$session = Facade::session();
+
+$session->set('session_key', 'an amazing value');
+
+echo $session->get('session_key'); // an amazing value
+
 ```
 
 #### Resetting a current container:

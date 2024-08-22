@@ -27,7 +27,7 @@ namespace ContainerFactory {
     }
 
     /**
-     * The current container instance
+     * Return the current container instance
      *
      * @return Contracts\ContainerInterface|null
      */
@@ -37,7 +37,8 @@ namespace ContainerFactory {
     }
 
     /**
-     * Directly calls a mounted service
+     * Directly call a mounted service using the
+     * facade system
      *
      * @param string $id The ID of the service
      *
@@ -45,6 +46,6 @@ namespace ContainerFactory {
      */
     function service(string $id): mixed
     {
-        return instance()?->get($id);
+        return Facade::$id();
     }
 }
