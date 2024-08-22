@@ -29,6 +29,8 @@ For example; let's say we are creating a micro-framework.
 We would want a portable container. We would possibly want to
 instantiate the container in an apps bootstrap
 process, and add dependencies to it later on.
+
+[Go here to see our oversimplified session library](#example-library)
 ```php
 use function ContainerFactory\{ instance };
 
