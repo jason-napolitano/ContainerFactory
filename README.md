@@ -1,8 +1,12 @@
 # ContainerFactory
-> Managing dependencies in PHP applications should be easy, and a container should
-> be robust. With that said, I've created a PSR-11 compatible dependency 
-> container in hopes of building a portable option with a simple, intuitive, and - most of 
-> all - practical, accessible API.
+> Managing dependencies in PHP applications should be easy. Likewise, the IOC container should
+> be easy to use, and robust. It shouldn't take programmatic arm twisting to mount, and access
+> dependencies within an application. 
+> 
+> With that said, I've created a PSR-11 compatible dependency container in hopes of building a
+> portable option with a simple, intuitive, and - most of all - practical, accessible API. The
+> goal of this container is to give developers easy access to all their dependencies in their
+> applications, without the headaches.
 
 #### Building a container:
 Building a container is simple. To do so we need to call
