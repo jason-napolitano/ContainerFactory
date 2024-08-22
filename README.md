@@ -9,9 +9,8 @@
 > applications, without the headaches.
 
 #### Building a container:
-Building a container is simple. To do so we need to call
-the `container()` function. In the container, an optional 
-callback can be passed which returns the container instance. 
+Building a container is simple. To do so we need to call the `container()` function. In 
+the container, an optional callback can be passed which returns the container instance. 
 Omitting the callback will allow a new container to be instantiated
 that can be called later on using `instance()`.
 ```php
@@ -25,14 +24,13 @@ container(function (ContainerFactory\Contracts\ContainerInterface $container) {
 ```
 
 #### Accessing the container:
-Accessing the current container instance can be done by calling
-`instance()`. This function takes no arguments. The `instance()`
-function allows us to interact with the container at any time.
+Accessing the current container instance can be done by calling `instance()`. This function 
+takes no arguments. The `instance()` function allows us to interact with the container at 
+any time.
 
-For example; let's say we are creating a micro-framework.
-We would want a portable container. We would possibly want to
-instantiate the container in an apps bootstrap
-process, and add dependencies to it later on. [Go here to see 
+For example - let's say we are creating a micro-framework. We might want to implement a 
+portable container. Then, we would probably want to instantiate that container in the 
+apps bootstrap process, and add dependencies to it later on. [Go here to see 
 our oversimplified session library](#example-library)
 ```php
 use function ContainerFactory\{ instance };
@@ -48,11 +46,10 @@ instance()->mount([
 ```
 
 #### Accessing mounted dependencies using `service()`:
-Okay, so we've mounted a session library to our container, and we want to
-access a shared instance of that library. To do this, we will simply call 
-the `service()` function . This function takes one argument - the key for 
-the mounted dependency - EG: `session` as we've configured in the example 
-above.
+Okay, so we've mounted a session library to our container, and we want to access a shared 
+instance of that library. To do this, we will simply call the `service()` function . This 
+function takes one argument - the key for the mounted dependency - EG: `session` as we've 
+configured in the example above.
 ```php
 use function ContainerFactory\{ service };
 
