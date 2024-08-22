@@ -31,11 +31,15 @@ any time.
 For example - let's say we are creating a micro-framework. We might want to implement a 
 portable container. Then, we would probably want to instantiate that container in the 
 apps bootstrap process, and add dependencies to it later on. [Go here to see 
-our oversimplified session library](#example-library)
+our oversimplified session library](#example-library) that we mount to the container
+in the example below.
 ```php
 use function ContainerFactory\{ instance };
 
 // further up the tree a new container has been instantiated
+// ...
+
+// a whole lot of other cool things are happening here
 // ...
 
 // now, we can mount a new session library using
