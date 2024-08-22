@@ -8,7 +8,7 @@
 > goal of this container is to give developers easy access to all their dependencies in their
 > applications, without the headaches.
 
-[Read the wiki for how-to information and a brief tutorial on how to use this library.](https://github.com/jason-napolitano/PSR11-Container/wiki)
+[Read the wiki for a brief introduction to this library, and a tutorial on how to use it.](https://github.com/jason-napolitano/PSR11-Container/wiki)
 
 ### MIT License
 
