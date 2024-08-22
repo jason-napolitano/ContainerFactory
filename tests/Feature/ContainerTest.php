@@ -3,7 +3,9 @@
 namespace Tests\Feature {
 
     use ContainerFactory\Contracts;
-    use function ContainerFactory\{container, destroy, instance, reset, service};
+    use function ContainerFactory\{
+        container, destroy, instance, reset, service
+    };
 
     describe('service container', function () {
 
