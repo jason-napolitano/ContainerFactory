@@ -12,5 +12,7 @@
 
 namespace ContainerFactory\Exceptions {
 
-    class Error extends \Error {}
+    class Error extends \Error
+    {
+    }
 }

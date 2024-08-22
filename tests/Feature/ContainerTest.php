@@ -34,12 +34,12 @@ namespace Tests\Feature {
         });
 
         test('an existing container can be reset using reset()', function () {
-	        instance()?->reset();
+            instance()?->reset();
             expect(instance()->services)->not()->toHaveKey('demo');
         });
 
         test('an existing container can be destroyed using destroy()', function () {
-	        instance()?->destroy();
+            instance()?->destroy();
             expect(instance())->toBeNull();
         });
 

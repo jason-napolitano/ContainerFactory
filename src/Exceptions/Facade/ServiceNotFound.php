@@ -2,10 +2,9 @@
 
 namespace ContainerFactory\Exceptions\Facade {
 
-	use ContainerFactory\Exceptions\Error;
+    use ContainerFactory\Exceptions\Error;
 
-	class ServiceNotFound extends Error
-	{
-
-	}
+    class ServiceNotFound extends Error
+    {
+    }
 }
