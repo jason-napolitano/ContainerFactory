@@ -67,7 +67,7 @@ properties.
 ```php
 use function ContainerFactory\{ instance };
 
-instance()->destroy()
+instance()->destroy();
 ```
 
 #### Example library
@@ -81,7 +81,7 @@ class Session
 {
     public function set(string $key, mixed $value): void
     {
-        $_SESSION[$key] = $value
+        $_SESSION[$key] = $value;
     }
     
     public function get(string $key): mixed
