@@ -98,9 +98,10 @@ instance()->destroy();
 ```
 
 #### Example library
-<details>
-  <summary>Open / Close</summary>
-
+In the README, we use a session library as an example on how to properly
+mount a dependency. out of solidarity for a clean example of what we're
+doing in the tutorial, this is the amazingly robust, and complicated class
+we are using.
 ```php
 namespace App\Services;
 
@@ -117,9 +118,6 @@ class Session
     }
 }
 ```
-</details>
-
-
 
 
 
