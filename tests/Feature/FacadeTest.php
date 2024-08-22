@@ -2,10 +2,12 @@
 
 use ContainerFactory\Exceptions;
 use ContainerFactory\Container;
-use ContainerFactory\Facade;
 use Tests\Feature\DemoService;
+use ContainerFactory\Facade;
 
-use function ContainerFactory\container;
+use function ContainerFactory\{
+	container, facade
+};
 
 describe('facade', function () {
 
@@ -19,9 +21,16 @@ describe('facade', function () {
         expect(Facade::demoService())->toBeInstanceOf(DemoService::class);
     });
 
-    test('facade can access methods within mounted service classes', function () {
+    test('facade can access methods within mounted service classes using the Facade class', function () {
         /** @var DemoService $demoService */
         $demoService = Facade::demoService();
+
+        expect($demoService->get())->toBe('hello, world!');
+    });
+
+    test('facade can access methods within mounted service classes using facade()', function () {
+        /** @var DemoService $demoService */
+        $demoService = facade('demoService');
 
         expect($demoService->get())->toBe('hello, world!');
     });
