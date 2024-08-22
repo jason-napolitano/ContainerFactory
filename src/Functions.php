@@ -43,6 +43,26 @@ namespace ContainerFactory {
      */
     function service(string $id): mixed
     {
-        return instance()->get($id);
+        return instance()?->get($id);
+    }
+
+    /**
+     * Resets a container
+     *
+     * @return void
+     */
+    function reset(): void
+    {
+		instance()?->reset();
+    }
+
+    /**
+     * Destroys a container
+     *
+     * @return void
+     */
+    function destroy(): void
+    {
+		instance()?->destroy();
     }
 }

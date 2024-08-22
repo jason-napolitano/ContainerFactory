@@ -33,9 +33,9 @@ namespace ContainerFactory {
         /**
          * Return the current container
          *
-         * @return self
+         * @return self|null
          */
-        public static function instance(): self
+        public static function instance(): ?self
         {
             return self::$instance;
         }
@@ -136,5 +136,15 @@ namespace ContainerFactory {
 
             return $reflectionClass->newInstanceArgs($dependencies);
         }
+
+	    public function reset(): void
+	    {
+		    self::$instance = new self();
+		}
+
+	    public function destroy(): void
+	    {
+		    self::$instance = null;
+		}
     }
 }

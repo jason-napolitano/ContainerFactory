@@ -21,5 +21,9 @@ namespace ContainerFactory\Contracts {
          * @return void
          */
         public function mount(array $services = []): void;
+
+	    public function destroy(): void;
+
+	    public function reset(): void;
     }
 }
