@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Scoped error class
+ * Error class for scoped error handling
  *
  * @license MIT <https://mit-license.org>
  * @author  Jason Napolitano
@@ -12,9 +12,5 @@
 
 namespace ContainerFactory\Exceptions {
 
-    use ContainerFactory\Contracts\ErrorInterface;
-
-    class Error extends \Error implements ErrorInterface
-    {
-    }
+    class Error extends \Error {}
 }
