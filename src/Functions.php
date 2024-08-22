@@ -44,7 +44,7 @@ namespace ContainerFactory {
      *
      * @return mixed
      */
-    function service(string $id): mixed
+    function facade(string $id): mixed
     {
         return Facade::$id();
     }

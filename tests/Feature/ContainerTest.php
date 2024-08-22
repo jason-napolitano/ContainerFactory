@@ -4,7 +4,7 @@ namespace Tests\Feature {
 
     use ContainerFactory\Contracts;
     use function ContainerFactory\{
-        container, instance, service
+        container, instance, facade
     };
 
     describe('service container', function () {
@@ -29,7 +29,7 @@ namespace Tests\Feature {
         });
 
         test('service() function successfully calls mounted service class', function () {
-            $service = service('demo');
+            $service = facade('demo');
             expect($service->get())->toBe('hello, world!');
         });
 
