@@ -4,7 +4,7 @@
 > container in hopes of building a portable option with a simple, intuitive, and - most of 
 > all - practical, accessible API.
 
-#### Build a container :
+#### Building a container:
 Building a container is simple. To do so we need to call
 the `container()` function. In the container, an optional 
 callback can be passed which returns the container instance. 
@@ -20,7 +20,7 @@ container(function (ContainerFactory\Contracts\ContainerInterface $container) {
 });
 ```
 
-#### Access the current container:
+#### Accessing the container:
 Accessing the current container instance can be done by calling
 `instance()`. This function takes no arguments. The `instance()`
 function allows us to interact with the container at any time.
@@ -43,7 +43,7 @@ instance()->mount([
 ]);
 ```
 
-#### Access mounted dependencies using `service()`:
+#### Accessing mounted dependencies using `service()`:
 Okay, so we've mounted a session library to our container, and we want to
 access a shared instance of that library. To do this, we will simply call 
 the `service()` function . This function takes one argument - the key for 
@@ -59,7 +59,7 @@ $session->set('message', 'Your account has been created');
 echo $session->get('message'); // Your account has been created
 ```
 
-#### Accessing mounted dependencies using `Facade`
+#### Accessing mounted dependencies using `Facade::class`
 Let's say we want to access our dependencies using a facade class. This
 can be done by calling `Facade::serviceName()`, where `serviceName` matches
 the key that has been configured for a service upon mounting it. EG: `session`,
@@ -76,7 +76,7 @@ echo $session->get('session_key'); // an amazing value
 
 ```
 
-#### Resetting a current container:
+#### Resetting the container:
 We can easily reset the container, and all its properties. Doing
 so will remove all dependencies and give us a new container object.
 To do this we would call `instance()->reset()`.
@@ -86,7 +86,7 @@ use function ContainerFactory\{ instance };
 instance()->reset();
 ```
 
-#### Destroying a current container:
+#### Destroying the container:
 There will be times when we may want to destroy a container.
 Destroying a container instance will completely destroy the
 container object.
