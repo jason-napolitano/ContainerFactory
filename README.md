@@ -12,7 +12,7 @@
 Building a container is simple. To do so we need to call the `container()` function. In 
 the container, an optional callback can be passed which returns the container instance. 
 Omitting the callback will allow a new container to be instantiated
-that can be called later on using `instance()`.
+that can be called later on using the `instance()` helper.
 ```php
 use function ContainerFactory\{ container };
 
@@ -25,7 +25,7 @@ container(function (ContainerFactory\Contracts\ContainerInterface $container) {
 
 #### Accessing the container:
 Accessing the current container instance can be done by calling `instance()`. This function 
-takes no arguments. The `instance()` function allows us to interact with the container at 
+takes no arguments. The `instance()` helper allows us to interact with the container at 
 any time.
 
 For example - let's say we are creating a micro-framework. We might want to implement a 
@@ -99,9 +99,8 @@ instance()->destroy();
 
 #### Example library
 In the README, we use a session library as an example on how to properly
-mount a dependency. out of solidarity for a clean example of what we're
-doing in the tutorial, this is the amazingly robust, and complicated class
-we are using.
+mount a dependency. Out of solidarity for a clean example of what we're
+doing in the tutorial, this is the amazingly complicated class we are using.
 ```php
 namespace App\Services;
 
