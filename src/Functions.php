@@ -53,7 +53,7 @@ namespace ContainerFactory {
      */
     function reset(): void
     {
-		instance()?->reset();
+        instance()?->reset();
     }
 
     /**
@@ -63,6 +63,6 @@ namespace ContainerFactory {
      */
     function destroy(): void
     {
-		instance()?->destroy();
+        instance()?->destroy();
     }
 }

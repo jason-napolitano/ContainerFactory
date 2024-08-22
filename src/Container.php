@@ -137,24 +137,24 @@ namespace ContainerFactory {
             return $reflectionClass->newInstanceArgs($dependencies);
         }
 
-	    /**
-	     * Resets a container
-	     *
-	     * @return void
-	     */
-	    public function reset(): void
-	    {
-		    self::$instance = new self();
-		}
+        /**
+         * Resets a container
+         *
+         * @return void
+         */
+        public function reset(): void
+        {
+            self::$instance = new self();
+        }
 
-	    /**
-	     * Destroys a container
-	     *
-	     * @return void
-	     */
-	    public function destroy(): void
-	    {
-		    self::$instance = null;
-		}
+        /**
+         * Destroys a container
+         *
+         * @return void
+         */
+        public function destroy(): void
+        {
+            self::$instance = null;
+        }
     }
 }
