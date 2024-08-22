@@ -11,8 +11,8 @@
 #### Building a container:
 Building a container is simple. To do so we need to call the `container()` function. In 
 the container, an optional callback can be passed which returns the container instance. 
-Omitting the callback will allow a new container to be instantiated
-that can be called later on using the `instance()` helper.
+Omitting the callback will allow a new container to be instantiated without any initial
+dependencies. The container can be called later on using the `instance()` helper.
 ```php
 use function ContainerFactory\{ container };
 
