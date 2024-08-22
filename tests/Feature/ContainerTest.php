@@ -33,7 +33,7 @@ namespace Tests\Feature {
 
         test('an existing container can be reset using reset()', function () {
             reset();
-            expect(instance()->services)->not()->toHaveKey('session');
+            expect(instance()->services)->not()->toHaveKey('demo');
         });
 
         test('an existing container can be destroyed using destroy()', function () {
