@@ -44,12 +44,12 @@ namespace ContainerFactory {
         public function get(string $id): mixed
         {
             if ($this->has($id)) {
-                $entry = $this->services[$id];
+                $service = $this->services[$id];
 
-                if (is_callable($entry)) {
-                    return $entry($this);
+                if (is_callable($service)) {
+                    return $service($this);
                 }
-                $id = $entry;
+                $id = $service;
             }
             return $this->resolve($id);
         }
@@ -61,17 +61,7 @@ namespace ContainerFactory {
         }
 
         /**
-         * Return the current container
-         *
-         * @return self|null
-         */
-        public static function instance(): ?self
-        {
-            return self::$instance;
-        }
-
-        /**
-         * Class resolver
+         * Dependency resolver
          *
          * @param string $id
          *
@@ -88,6 +78,8 @@ namespace ContainerFactory {
             if (!$reflectionClass->isInstantiable()) {
                 throw new Exceptions\Container\ContainerException($id . '" is not instantiable');
             }
+
+			//
             $constructor = $reflectionClass->getConstructor();
 
             if (!$constructor) {
@@ -130,6 +122,16 @@ namespace ContainerFactory {
 
             return $reflectionClass->newInstanceArgs($dependencies);
         }
+
+	    /**
+	     * Return the current container
+	     *
+	     * @return self|null
+	     */
+	    public static function instance(): ?self
+	    {
+		    return self::$instance;
+	    }
 
         /** @inheritDoc */
         public function reset(): void
