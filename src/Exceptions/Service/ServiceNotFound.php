@@ -1,6 +1,6 @@
 <?php
 
-namespace ContainerFactory\Exceptions\Factory {
+namespace ContainerFactory\Exceptions\Service {
 
     use ContainerFactory\Exceptions\Error;
 

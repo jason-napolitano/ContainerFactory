@@ -2,7 +2,7 @@
 
 namespace ContainerFactory\Contracts {
 
-    interface FactoryInterface
+    interface ServiceInterface
     {
         /**
          * Calls a service class that has been loaded into the
