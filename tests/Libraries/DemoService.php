@@ -6,7 +6,7 @@ namespace Tests\Libraries {
     {
         public string $libraryProperty = 'library property value';
 
-        public function get(): string
+        public function libraryMessage(): string
         {
             return 'I am coming from the library class!';
         }
