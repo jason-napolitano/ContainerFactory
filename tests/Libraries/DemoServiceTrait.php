@@ -4,7 +4,7 @@ namespace Tests\Libraries {
 
 	trait DemoServiceTrait
 	{
-		public string $message = 'property message';
+		public string $traitProperty = 'trait property value';
 
 		public function traitMessage(): string
 		{

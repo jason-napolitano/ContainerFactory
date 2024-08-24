@@ -6,7 +6,7 @@ namespace Tests\Feature {
 	use Tests\Libraries\DemoService;
 	use function ContainerFactory\{container, instance};
 
-	describe('service container', function () {
+	describe('container', function () {
 
         test('new container and container instance have successfully been created', function () {
             container(function ($instance) {
