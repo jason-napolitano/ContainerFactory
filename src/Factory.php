@@ -2,11 +2,7 @@
 
 namespace ContainerFactory {
 
-	use ContainerFactory\Exceptions;
-	use ContainerFactory\Contracts;
-	use Tests\Feature\DemoService;
-
-    class Facade implements Contracts\FacadeInterface
+	class Factory implements Contracts\FacadeInterface
     {
         /** @inheritDoc */
         public static function __callStatic(string $name, array $arguments)
