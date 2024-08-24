@@ -30,7 +30,7 @@ describe('factory', function () {
         /** @var DemoService $demo */
         $demo = factory('demoService');
 
-        expect($demo->get())->toBe('hello, world!');
+        expect($demo->get())->toBe('I am coming from the library class!');
     });
 
     test('factory function can access properties of a mounted service classes', function () {

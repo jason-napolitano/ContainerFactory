@@ -8,7 +8,7 @@ namespace Tests\Libraries {
 
         public function get(): string
         {
-            return 'hello, world!';
+            return 'I am coming from the library class!';
         }
     }
 }
