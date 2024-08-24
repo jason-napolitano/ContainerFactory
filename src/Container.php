@@ -11,7 +11,7 @@
 
 namespace ContainerFactory {
 
-    use ReflectionException;
+	use ReflectionException;
     use ReflectionNamedType;
     use ReflectionParameter;
     use ReflectionUnionType;
@@ -79,7 +79,13 @@ namespace ContainerFactory {
                 throw new Exceptions\Container\ContainerException($id . '" is not instantiable');
             }
 
-            //
+			if (!$reflectionClass->implementsInterface(Contracts\InjectableInterface::class)) {
+				throw new Exceptions\Container\ContainerException(
+					$id . ' must implement ' . Contracts\InjectableInterface::class
+				);
+			}
+
+			//
             $constructor = $reflectionClass->getConstructor();
 
             if (!$constructor) {
@@ -123,15 +129,15 @@ namespace ContainerFactory {
             return $reflectionClass->newInstanceArgs($dependencies);
         }
 
-        /**
-         * Return the current container
-         *
-         * @return self|null
-         */
-        public static function instance(): ?self
-        {
-            return self::$instance;
-        }
+	    /**
+	     * Return the current container
+	     *
+	     * @return self|null
+	     */
+	    public static function instance(): ?self
+	    {
+		    return self::$instance;
+	    }
 
         /** @inheritDoc */
         public function reset(): void

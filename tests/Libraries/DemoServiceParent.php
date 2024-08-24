@@ -2,7 +2,9 @@
 
 namespace Tests\Libraries {
 
-    class DemoServiceParent
+	use ContainerFactory\Contracts\InjectableInterface;
+
+	class DemoServiceParent implements InjectableInterface
     {
         use DemoServiceTrait;
 
