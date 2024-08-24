@@ -2,7 +2,7 @@
 
 namespace ContainerFactory {
 
-	class Factory implements Contracts\FactoryInterface
+    class Factory implements Contracts\FactoryInterface
     {
         /** @inheritDoc */
         public static function __callStatic(string $name, array $arguments)

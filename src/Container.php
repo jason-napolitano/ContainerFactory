@@ -79,7 +79,7 @@ namespace ContainerFactory {
                 throw new Exceptions\Container\ContainerException($id . '" is not instantiable');
             }
 
-			//
+            //
             $constructor = $reflectionClass->getConstructor();
 
             if (!$constructor) {
@@ -123,15 +123,15 @@ namespace ContainerFactory {
             return $reflectionClass->newInstanceArgs($dependencies);
         }
 
-	    /**
-	     * Return the current container
-	     *
-	     * @return self|null
-	     */
-	    public static function instance(): ?self
-	    {
-		    return self::$instance;
-	    }
+        /**
+         * Return the current container
+         *
+         * @return self|null
+         */
+        public static function instance(): ?self
+        {
+            return self::$instance;
+        }
 
         /** @inheritDoc */
         public function reset(): void

@@ -11,9 +11,9 @@
 
 namespace ContainerFactory\Exceptions\Container {
 
-	use Psr\Container\ContainerExceptionInterface;
+    use Psr\Container\ContainerExceptionInterface;
 
-	class ContainerException extends \Exception implements ContainerExceptionInterface
+    class ContainerException extends \Exception implements ContainerExceptionInterface
     {
     }
 }

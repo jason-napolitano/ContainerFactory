@@ -2,15 +2,15 @@
 
 namespace Tests\Libraries {
 
-	class DemoServiceParent
-	{
-		use DemoServiceTrait;
+    class DemoServiceParent
+    {
+        use DemoServiceTrait;
 
-		public string $parentProperty = 'parent property value';
+        public string $parentProperty = 'parent property value';
 
-		public function parentMessage(): string
-		{
-			return 'I am coming from the parent class!';
-		}
-	}
+        public function parentMessage(): string
+        {
+            return 'I am coming from the parent class!';
+        }
+    }
 }

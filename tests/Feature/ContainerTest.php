@@ -2,11 +2,11 @@
 
 namespace Tests\Feature {
 
-	use ContainerFactory\Contracts;
-	use Tests\Libraries\DemoService;
-	use function ContainerFactory\{container, instance};
+    use ContainerFactory\Contracts;
+    use Tests\Libraries\DemoService;
+    use function ContainerFactory\{container, instance};
 
-	describe('container', function () {
+    describe('container', function () {
 
         test('new container and container instance have successfully been created', function () {
             container(function ($instance) {
@@ -20,7 +20,7 @@ namespace Tests\Feature {
 
         test('container instance can have services mounted to it using mount()', function () {
             instance()?->mount([
-				'demo' => DemoService::class
+                'demo' => DemoService::class
             ]);
             expect(instance()->services)->toHaveKey('demo', DemoService::class);
         });
@@ -42,6 +42,5 @@ namespace Tests\Feature {
         // test('test description)', function () {
 
         // });
-
     })->group('container');
 }

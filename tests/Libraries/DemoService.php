@@ -2,9 +2,9 @@
 
 namespace Tests\Libraries {
 
-	class DemoService extends DemoServiceParent
+    class DemoService extends DemoServiceParent
     {
-		public string $libraryProperty = 'library property value';
+        public string $libraryProperty = 'library property value';
 
         public function get(): string
         {
