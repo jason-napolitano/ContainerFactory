@@ -2,7 +2,7 @@
 
 namespace ContainerFactory\Contracts {
 
-	interface InjectableInterface
+	interface MountableInterface
 	{
 
 	}

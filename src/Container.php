@@ -79,9 +79,9 @@ namespace ContainerFactory {
                 throw new Exceptions\Container\ContainerException($id . '" is not instantiable');
             }
 
-			if (!$reflectionClass->implementsInterface(Contracts\InjectableInterface::class)) {
+			if (!$reflectionClass->implementsInterface(Contracts\MountableInterface::class)) {
 				throw new Exceptions\Container\ContainerException(
-					$id . ' must implement ' . Contracts\InjectableInterface::class
+					$id . ' must implement ' . Contracts\MountableInterface::class
 				);
 			}
 
