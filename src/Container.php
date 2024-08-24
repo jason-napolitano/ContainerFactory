@@ -139,13 +139,21 @@ namespace ContainerFactory {
 		    return self::$instance;
 	    }
 
-        /** @inheritDoc */
+	    /**
+	     * Resets a container
+	     *
+	     * @return void
+	     */
         public function reset(): void
         {
             self::$instance = new self();
         }
 
-        /** @inheritDoc */
+	    /**
+	     * Destroys a container
+	     *
+	     * @return void
+	     */
         public function destroy(): void
         {
             self::$instance = null;
