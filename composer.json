@@ -1,5 +1,5 @@
 {
-    "name": "dynamo-php/bootstrap",
+    "name": "jason-napolitano/psr11-container",
     "type": "library",
     "license": "MIT",
     "scripts": {
