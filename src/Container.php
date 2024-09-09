@@ -11,13 +11,13 @@
 
 namespace ContainerFactory {
 
-	use ReflectionException;
+    use ReflectionException;
     use ReflectionNamedType;
     use ReflectionParameter;
     use ReflectionUnionType;
     use ReflectionClass;
 
-    class Container implements Contracts\ContainerInterface
+    class Container implements Contracts\ContainerInterface, Contracts\InstanceInterface
     {
         /** @var Container|null $instance Container instance */
         private static ?Container $instance = null;
@@ -79,13 +79,7 @@ namespace ContainerFactory {
                 throw new Exceptions\Container\ContainerException($id . '" is not instantiable');
             }
 
-			if (!$reflectionClass->implementsInterface(Contracts\MountableInterface::class)) {
-				throw new Exceptions\Container\ContainerException(
-					$id . ' must implement ' . Contracts\MountableInterface::class
-				);
-			}
-
-			//
+            //
             $constructor = $reflectionClass->getConstructor();
 
             if (!$constructor) {
@@ -129,31 +123,23 @@ namespace ContainerFactory {
             return $reflectionClass->newInstanceArgs($dependencies);
         }
 
-	    /**
-	     * Return the current container
-	     *
-	     * @return self|null
-	     */
-	    public static function instance(): ?self
-	    {
-		    return self::$instance;
-	    }
+        /**
+         * Return the current container
+         *
+         * @return self|null
+         */
+        public static function instance(): ?self
+        {
+            return self::$instance;
+        }
 
-	    /**
-	     * Resets a container
-	     *
-	     * @return void
-	     */
+        /** @inheritdoc */
         public function reset(): void
         {
             self::$instance = new self();
         }
 
-	    /**
-	     * Destroys a container
-	     *
-	     * @return void
-	     */
+        /** @inheritdoc */
         public function destroy(): void
         {
             self::$instance = null;

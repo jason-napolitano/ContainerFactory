@@ -5,7 +5,7 @@ use ContainerFactory\Contracts;
 use ContainerFactory\Service;
 
 use function ContainerFactory\{
-	container, service, instance
+    container, service, instance
 };
 
 describe('service', function () {

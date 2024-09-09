@@ -2,9 +2,7 @@
 
 namespace Tests\Libraries {
 
-	use ContainerFactory\Contracts\MountableInterface;
-
-	class DemoServiceParent implements MountableInterface
+    class DemoServiceParent
     {
         use DemoServiceTrait;
 
