@@ -11,7 +11,7 @@ use function ContainerFactory\{
 describe('service', function () {
 
     test('service class generates static methods which call services mounted to the container', function () {
-        container(function (Contracts\ContainerInstance $container) {
+        container(function (Contracts\ContainerInterface $container) {
             $container->mount([
                 'demoService' => \Tests\Libraries\DemoService::class,
             ]);

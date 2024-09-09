@@ -17,7 +17,7 @@ namespace ContainerFactory {
     use ReflectionUnionType;
     use ReflectionClass;
 
-    class Container implements Contracts\ContainerInstance
+    class Container implements Contracts\ContainerInterface
     {
         /** @var Container|null $instance Container instance */
         private static ?Container $instance = null;
