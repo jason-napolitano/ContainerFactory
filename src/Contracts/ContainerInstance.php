@@ -2,7 +2,9 @@
 
 namespace ContainerFactory\Contracts {
 
-    interface ContainerInstance
+	use Psr\Container\ContainerInterface;
+
+	interface ContainerInstance extends ContainerInterface
     {
         /**
          * Mounts a service to a container
