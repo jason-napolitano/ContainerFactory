@@ -11,7 +11,7 @@ namespace ContainerFactory\Contracts {
          *
          * @return void
          */
-        public function mount(array $services = []): void;
+        public function mount(array $services): void;
 
         /**
          * Resets a container
