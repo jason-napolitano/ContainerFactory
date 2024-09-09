@@ -11,7 +11,7 @@
 
 namespace ContainerFactory\Contracts {
 
-    interface ContainerInterface extends \Psr\Container\ContainerInterface
+    interface NewContainer extends \Psr\Container\ContainerInterface
     {
         /**
          * Mount new services to the container

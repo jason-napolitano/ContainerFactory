@@ -12,9 +12,9 @@ namespace Tests\Feature {
             container(function ($instance) {
                 // $instance->mount([ ... ])
                 expect($instance)
-                    ->toBeInstanceOf(Contracts\ContainerInterface::class)
+                    ->toBeInstanceOf(Contracts\NewContainer::class)
                     ->and(instance())
-                    ->toBeInstanceOf(Contracts\ContainerInterface::class);
+                    ->toBeInstanceOf(Contracts\NewContainer::class);
             });
         });
 

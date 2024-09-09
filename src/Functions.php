@@ -29,9 +29,9 @@ namespace ContainerFactory {
     /**
      * Return the current container instance
      *
-     * @return Contracts\InstanceInterface|null
+     * @return Contracts\CurrentContainer|null
      */
-    function instance(): ?Contracts\InstanceInterface
+    function instance(): ?Contracts\CurrentContainer
     {
         return Container::instance();
     }

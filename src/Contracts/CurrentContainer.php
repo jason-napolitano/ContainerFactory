@@ -2,7 +2,7 @@
 
 namespace ContainerFactory\Contracts {
 
-    interface InstanceInterface extends ContainerInterface
+    interface CurrentContainer extends NewContainer
     {
         /**
          * Resets a container

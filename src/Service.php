@@ -2,7 +2,7 @@
 
 namespace ContainerFactory {
 
-    class Service implements Contracts\ServiceInterface
+    class Service
     {
         /** @inheritDoc */
         public static function __callStatic(string $name, array $arguments)
