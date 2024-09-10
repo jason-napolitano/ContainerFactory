@@ -25,8 +25,8 @@ namespace ContainerFactory {
         /** @var array $services Services array */
         public array $services = [];
 
-		/** @var string|null $alias Container alias */
-		protected static ?string $alias;
+        /** @var string|null $alias Container alias */
+        protected static ?string $alias;
 
         public function __construct()
         {
@@ -136,15 +136,15 @@ namespace ContainerFactory {
             return self::$instance;
         }
 
-	    /**
-	     * Return the container alias
-	     *
-	     * @return string|null
-	     */
-	    public static function alias(): string|null
-	    {
-		    return self::$alias;
-		}
+        /**
+         * Return the container alias
+         *
+         * @return string|null
+         */
+        public static function alias(): string|null
+        {
+            return self::$alias;
+        }
 
         /** @inheritdoc */
         public function reset(): void
