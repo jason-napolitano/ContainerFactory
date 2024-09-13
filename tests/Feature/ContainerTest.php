@@ -9,7 +9,7 @@ namespace Tests\Feature {
     describe('container', function () {
 
         test('new container and container instance have successfully been created', function () {
-            container(function ($instance) {
+            container(function (Contracts\ContainerInterface $instance) {
                 // $instance->mount([ ... ])
                 expect($instance)
                     ->toBeInstanceOf(Contracts\ContainerInterface::class)
