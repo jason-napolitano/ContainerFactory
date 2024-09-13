@@ -1,6 +1,7 @@
 {
     "name": "jason-napolitano/psr11-container",
     "type": "library",
+    "version": "1.0.0",
     "license": "MIT",
     "scripts": {
         "test": "./vendor/bin/pest",
