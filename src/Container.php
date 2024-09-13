@@ -17,7 +17,7 @@ namespace ContainerFactory {
     use ReflectionUnionType;
     use ReflectionClass;
 
-    class Container implements Contracts\ContainerInterface
+    class Container implements Contracts\ContainerInterface, Contracts\InstanceInterface
     {
         /** @var Container|null $instance Container instance */
         private static ?Container $instance = null;
@@ -36,8 +36,22 @@ namespace ContainerFactory {
             $this->services = [...$this->services, ...$services];
 
             foreach ($this->services as $entry => $class) {
-                $this->services[$entry] = $class;
+                $this->add($entry, $class);
             }
+        }
+
+        /**
+         * @inheritdoc
+         */
+        public function add(string $name, string|object|callable $concrete): void
+        {
+            $this->services[$name] = $concrete;
+        }
+
+        /** @inheritDoc */
+        public function remove(string $name): void
+        {
+            array_splice($this->services, array_search($name, array_keys($this->services), true), 1);
         }
 
         /** @inheritDoc */
@@ -124,11 +138,12 @@ namespace ContainerFactory {
         }
 
         /**
-         * Return the current container
+         * Return the current container, or NULL if no
+         * instance is available
          *
          * @return self|null
          */
-        public static function instance(): ?self
+        public static function instance(): null|Contracts\InstanceInterface
         {
             return self::$instance;
         }

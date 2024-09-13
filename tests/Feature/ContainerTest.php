@@ -25,6 +25,16 @@ namespace Tests\Feature {
             expect(instance()->services)->toHaveKey('demo', DemoService::class);
         });
 
+        test('a container can have a service added to it using instance()->add()', function () {
+            instance()->add('testing', DemoService::class);
+            expect(instance()->services)->toHaveKey('testing', DemoService::class);
+        });
+
+        test('a container can have a service removed from it using instance()->remove()', function () {
+            instance()->remove('testing');
+            expect(instance()->services)->not()->toHaveKey('testing');
+        });
+
         test('services that have not been mounted to the container cannot be called', function () {
             expect(instance()->services)->not()->toHaveKey('serviceThatDoesNotExist');
         });
